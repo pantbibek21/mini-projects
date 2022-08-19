@@ -21,18 +21,24 @@ function generateRandomNumber() {
 let randomNumber = generateRandomNumber();
 
 //attaching event to check button
-checkBtn.addEventListener('click', () => {
+checkBtn.addEventListener('click', checkGuessedNumber);
+
+//function to validate guessed number and display appropriate message
+function checkGuessedNumber() {
 
     let currentNumber = inputNumber.value;
     //depending on whether difference is positive or negative, we set message
+
     let difference = currentNumber - randomNumber;
+
     //depending on gap, we will set different  message
+
     let numberGap = Math.abs(randomNumber - currentNumber);
 
-   if(currentNumber == ""){
+    if (currentNumber == "") {
         displayMessage("💥 No Number!");
-   }
-    
+    }
+
     //when the guessed number is correct
     else if (numberGap == 0) {
         displayMessage("🎉 Correct Number!");
@@ -41,7 +47,7 @@ checkBtn.addEventListener('click', () => {
         checkHighScore(currentScore);
         checkBtn.disabled = true;
     }
-    else if(currentNumber > 20){
+    else if (currentNumber > 20) {
         displayMessage("🚧 Out of range !");
         reduceScore();
     }
@@ -59,20 +65,20 @@ checkBtn.addEventListener('click', () => {
         (difference > 0) ? displayMessage("Very High!") : displayMessage("Very Low!");
         reduceScore();
     }
-    else{
+    else {
         resultMsg.innerHTML = "☃️ Gone AntarTica!"
         reduceScore();
     }
-})
+}
 
 //function to display message 
 const displayMessage = (message) => {
-    resultMsg.innerHTML =  `${message}`;
+    resultMsg.innerHTML = `${message}`;
 }
 
 //function to reduce score with every incorrect guess
 const reduceScore = () => {
-    if(currentScore == 1){
+    if (currentScore == 1) {
         gameLost();
     }
     currentScore--;
@@ -91,9 +97,9 @@ againBtn.addEventListener('click', () => {
 //function to be called when game is lost
 const gameLost = () => {
     displayMessage("😭 You lost!");
-     document.body.style.backgroundColor = "red";
-     secretNumber.innerHTML = randomNumber;
-     checkBtn.disabled = true;
+    document.body.style.backgroundColor = "red";
+    secretNumber.innerHTML = randomNumber;
+    checkBtn.disabled = true;
 }
 
 // reset everything back to original interface
@@ -110,5 +116,11 @@ const checkHighScore = (currentScore) => {
     let previousHighScore = parseInt(highscore.innerHTML);
     if (previousHighScore < currentScore) {
         highscore.innerHTML = `${currentScore}`;
+    }
+}
+
+document.onkeydown = (e) => {
+    if (e.key == 'Enter') {
+        checkGuessedNumber();
     }
 }
