@@ -9,7 +9,7 @@ let resultMsg = document.querySelector(".right .result");
 let score = document.getElementById("score-number");
 let highscore = document.getElementById("high-score-number");
 let secretNumber = document.querySelector(".header .secret-number");
-
+let gameWon = false;
 
 //global variable declaration
 let currentScore = 20;
@@ -46,6 +46,7 @@ function checkGuessedNumber() {
         secretNumber.innerHTML = randomNumber;
         checkHighScore(currentScore);
         checkBtn.disabled = true;
+        gameWon = true;
     }
     else if (currentNumber > 20) {
         displayMessage("🚧 Out of range !");
@@ -121,6 +122,9 @@ const checkHighScore = (currentScore) => {
 
 document.onkeydown = (e) => {
     if (e.key == 'Enter') {
-        checkGuessedNumber();
+        if(!gameWon){
+            checkGuessedNumber();
+        }
+        
     }
 }
