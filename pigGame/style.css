@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 100rem;
+    width: 100rem;
+    height: 90vh;
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(200px);
+    filter: blur();
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border-radius: 12px;
+}
+
+.container .player {
+    background-color: #ba7a97;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    padding-top: 90px;
+    transition: all 0.2s ease;
+}
+
+
+.left-player {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.right-player {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.player .title {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    font-size: 4rem;
+    margin-bottom: 12px;
+    color: rgba(0, 0, 0, 0.766);
+    font-weight: 400;
+}
+
+.player .main-score {
+    color: #c7365f;
+    font-size: 8rem;
+    font-weight: 400;
+    margin-bottom: 124px;
+}
+
+.player .score-wrapper {
+    min-width: 120px;
+    width: 42%;
+    height: 120px;
+    margin: 0 auto;
+    border-radius: 8px;
+    background-color: #c7365f;
+    color: rgba(255, 255, 255, 0.824);
+    padding: 20px;
+}
+
+.score-wrapper h2 {
+    font-weight: 400;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.score-wrapper .current-score {
+    font-size: 3.2rem;
+    font-weight: 400;
+}
+
+/* Absolute positioned elements */
+
+.container .btn {
+    font-family: inherit;
+    font-size: 1.8rem;
+    padding: 12px 30px;
+    position: absolute;
+    border-radius: 64px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.736);
+    backdrop-filter: blur(10px);
+    color: #444;
+}
+
+.new-btn {
+    top: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.container .btns {
+    position: absolute;
+    bottom: 210px;
+    left: 50%;
+}
+
+.container .icon {
+    font-size: 2rem;
+}
+
+.roll-btn {
+    transform: translateX(-50%);
+}
+
+.hold-btn {
+    transform: translateX(-50%);
+    top: 70px;
+}
+
+/* styles for dice images */
+
+.dice-wrapper {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+.dice-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.dice-wrapper .active {
+    display: block;
+}
+
+/* when the player is active */
+
+.container .player-active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.player-active .title {
+    font-weight: 700;
+}
+.player-active .main-score {
+    font-weight: 500;
+}
+
+/* when the player wins */
+.container .winner {
+    background-color: #444;
+   
+}
+.winner .title {
+    color: #c7365f;
+    font-weight: bold;
+}

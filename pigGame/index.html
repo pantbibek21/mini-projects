@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pig Game</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- 🔄 🎲 📥 -->
+
+    <div class="container">
+        <div class="player left-player player-active " id="player-0">
+            <h1 class="title " id="title-0">Player 1</h1>
+            <div class="main-score" id="mainScore-0">0</div>
+            <div class="score-wrapper">
+                <h2>Current</h2>
+                <div class="current-score" id="score-0">0</div>
+            </div>
+        </div>
+        <div class="player right-player " id="player-1">
+            <h1 class="title" id="title-1">Player 2</h1>
+            <div class="main-score" id="mainScore-1">0</div>
+            <div class="score-wrapper">
+                <h2>Current</h2>
+                <div class="current-score" id="score-1">0</div>
+            </div>
+        </div>
+        <button class="btn new-btn"><span class="icon">🔄</span>&nbsp;New Game</button>
+        <div class="btns">
+            <button class="btn roll-btn"><span class="icon">🎲</span>&nbsp;Roll&nbsp;Dice</button>
+            <button class="btn hold-btn"><span class="icon">📥</span>&nbsp;Hold</button>
+        </div>
+        <div class="dice-wrapper">
+            <img src="Images/dice-1.png" alt="">
+            <img src="Images/dice-2.png" alt="">
+            <img src="Images/dice-3.png" alt="">
+            <img src="Images/dice-4.png" alt="">
+            <img src="Images/dice-5.png" alt="">
+            <img src="Images/dice-6.png" alt="">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+  
+</body>
+
+</html>
