@@ -22,3 +22,9 @@ Each turn, a player repeatedly rolls a die until either a 1 is rolled or the pla
 **The first player to score 100 or more points wins.**
 
 *Wikipedia - [PigGame](https://en.wikipedia.org/wiki/Pig_(dice_game))*
+
+
+## 3. Digital Clock 
+**Folder Name : Digital Clock**
+
+*Live Preview : click [here.](https://digitalclock.bitbucket.io/)*
