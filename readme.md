@@ -34,3 +34,9 @@ Each turn, a player repeatedly rolls a die until either a 1 is rolled or the pla
 **Folder Name : listing-app**
 
 *Live Preview : click [here.](https://listing-app.bitbucket.io/)*
+
+## 5. Random Color Generator 
+**Folder Name : random-color-generator**
+
+*Live Preview : click [here.](https://random-color-generator.bitbucket.io/)*
+
