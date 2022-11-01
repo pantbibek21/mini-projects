@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Snake Game</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            background-color: #a2bf62;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container .game-playground {
+            width: 90%;
+            max-width: 600px;
+            height: 430px;
+            background-color: #abca67;
+            border: 4px solid #272f17;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            cursor: default;
+        }
+
+        .game-playground .header {
+            width: 100%;
+            /* height: 120px; */
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            /* border: 1px solid blue; */
+        }
+
+        .header .main-heading {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 86px;
+            margin: 0px 20px;
+            color: #2b331a;
+        }
+
+        .gear-wrapper {
+            height: 30px;
+            width: 30px;
+            align-self: center;
+        }
+
+        .gear-wrapper .gear {
+            width: 100%;
+            height: 100%;
+            animation-name: run-gear;
+            animation-timing-function: linear;
+            animation-direction: linear;
+            animation-duration: 2.5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes run-gear {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .game-playground .sub-heading {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .game-playground .footer {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+
+        .footer .button {
+            display: block;
+            padding: 16px 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bolder;
+            font-size: 36px;
+            background: none;
+            border: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .footer .button:hover {
+            outline: 1px solid #272f17;
+            background-color: #2b331a;
+            color: #9bba5a
+        }
+
+        .container .sound-off {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            position: absolute;
+            top: 16px;
+            right: 20px;
+        }
+
+        .sound-off img {
+
+            width: 100%;
+            height: 100%;
+            opacity: 0.7;
+        }
+
+        .container .logo {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            cursor: pointer;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 32px;
+            font-weight: bold;
+            border: 2px solid #272f17;
+            border-radius: 50%;
+            padding: 8px;
+            position: absolute;
+            top: 16px;
+            left: 20px;
+        }
+
+      
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">N</div>
+        <div class="sound-off"><img src="Images/volume-off-solid.svg" alt=""></div>
+        <div class="game-playground">
+            <div class="header">
+                <div class="gear-wrapper">
+                    <img class="gear" src="Images/gear-solid.svg" alt="">
+                </div>
+                <h1 class="main-heading">Snake</h1>
+                <div class="gear-wrapper">
+                    <img class="gear" src="Images/gear-solid.svg" alt="">
+                </div>
+            </div>
+            <h2 class="sub-heading">CHOOSE LEVEL:</h2>
+            <div class="footer">
+                <button class="button first-button">SLUG</button>
+                <button class="button second-button">WORM</button>
+                <button class="button third-button">PYTHON</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
