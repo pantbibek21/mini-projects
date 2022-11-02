@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classic Snake Game</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
         * {
             margin: 0px;
             padding: 0px;
@@ -39,6 +41,7 @@
             align-items: center;
             justify-content: space-evenly;
             cursor: default;
+            user-select: none;
         }
 
         .game-playground .header {
@@ -52,9 +55,11 @@
 
         .header .main-heading {
             font-family: 'Courier New', Courier, monospace;
+            font-family: 'VT323', monospace;
             font-size: 86px;
             margin: 0px 20px;
             color: #2b331a;
+            user-select: none;
         }
 
         .gear-wrapper {
