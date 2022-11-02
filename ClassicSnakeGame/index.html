@@ -42,6 +42,19 @@
             justify-content: space-evenly;
             cursor: default;
             user-select: none;
+
+        }
+
+        .container .game-playground-active {
+            display: none;
+            position: relative;
+        }
+
+        .timer {
+            font-size: 112px;
+            font-weight: bold;
+            font-family: 'VT323', monospace;
+            opacity: 0.8;
         }
 
         .game-playground .header {
@@ -202,7 +215,7 @@
         <div class="sound-wrapper sound-wrapper-off"><img src="Images/volume-off-solid.svg" class="sound-off" alt="">
             <img src="Images/volume-high-solid.svg" class="sound-on" alt="">
         </div>
-        <div class="game-playground">
+        <div class="game-playground game-playground-initial">
             <div class="header">
                 <div class="gear-wrapper">
                     <img class="gear" src="Images/gear-solid.svg" alt="">
@@ -219,6 +232,10 @@
                 <button class="button third-button">PYTHON</button>
             </div>
         </div>
+        <div class="game-playground game-playground-active">
+            <div class="timer"></div>
+
+        </div>
     </div>
 
     <script>
@@ -230,6 +247,41 @@
             soundWrapperBtn.classList.toggle("sound-wrapper-on");
             soundWrapperBtn.classList.toggle("sound-wrapper-off");
         })
+
+        const gamePlaygroundInitial = document.querySelector(".container .game-playground-initial");
+        const gamePlaygroundActive = document.querySelector(".container .game-playground-active");
+        let counter = 0;
+
+        const timer = document.querySelector(".timer");
+        const timerElements = ["3", "2", "1", "GO"];
+
+        document.querySelectorAll(".button").forEach((button) => {
+            button.addEventListener("click", () => {
+                gamePlaygroundInitial.style.display = "none";
+                gamePlaygroundActive.style.display = "flex";
+                const timerInterval = setInterval(() => {
+                    if (counter == 4) {
+                        counter = 0;
+                        window.clearInterval(timerInterval);
+                        console.log(" I was here");
+                        timer.style.display = "none";
+                        //display snake and food
+                    }
+                    else {
+                        timer.innerHTML = timerElements[counter];
+                        counter++;
+                    }
+                }, 800);
+            });
+
+        })
+
+        function snakeFoodGenerator() {
+
+        }
+
+
+
 
     </script>
 </body>
