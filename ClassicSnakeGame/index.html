@@ -45,6 +45,26 @@
 
         }
 
+
+        .game-playground-active .food {
+            font-size: 22px;
+            position: absolute;
+            top: 20px;
+            display: none;
+        }
+
+        .game-playground-active .snakeBlock {
+            width: 20px;
+            height: 20px;
+            display: none;
+            position: absolute;
+            top: 20px;
+            left: 280px;
+            /* border-radius: 4px;
+            background-color: #272f17;
+            border: 1px solid #272f17; */
+        }
+
         .container .game-playground-active {
             display: none;
             position: relative;
@@ -234,7 +254,8 @@
         </div>
         <div class="game-playground game-playground-active">
             <div class="timer"></div>
-
+            <div class="food">🐸</div>
+            <div class="snakeBlock">🐍</div>
         </div>
     </div>
 
@@ -263,9 +284,10 @@
                     if (counter == 4) {
                         counter = 0;
                         window.clearInterval(timerInterval);
-                        console.log(" I was here");
                         timer.style.display = "none";
                         //display snake and food
+                        snakeFoodGenerator();
+                        initialSnakeGenerator();
                     }
                     else {
                         timer.innerHTML = timerElements[counter];
@@ -276,10 +298,20 @@
 
         })
 
-        function snakeFoodGenerator() {
+        const snakeFood = document.querySelector(".food");
 
+        function snakeFoodGenerator() {
+            let xCoOrdinate = Math.trunc(Math.random() * 596) + "px";
+            let yCoOrdinate = Math.trunc(Math.random() * 426) + "px";
+            snakeFood.style.cssText = `top: ${yCoOrdinate}; left: ${xCoOrdinate}; display: block;`
         }
 
+        function initialSnakeGenerator() {
+            const snake = document.querySelector(".snakeBlock");
+            const snakeBlock = snake.innerText;
+            snake.innerText = snakeBlock.repeat(3);
+            snake.style.display = "block";
+        }
 
 
 
