@@ -1,6 +1,8 @@
 const container = document.querySelector(".container");
 const submitBtn = document.querySelector(".submit-btn");
-submitBtn.addEventListener("click", function () {
+submitBtn.addEventListener("click", getCountryName);
+
+function getCountryName() {
     let country = document.querySelector(".input-country").value;
 
     if (! /^[a-zA-Z ]+$/.test(country)) {
@@ -8,11 +10,11 @@ submitBtn.addEventListener("click", function () {
     }
     else {
         let updatedCountryName = formattedCountryName(country);
-        renderCountry(updatedCountryName);
+        renderCountryWithName(updatedCountryName);
     }
-});
+}
 
-function renderCountry(name) {
+function renderCountryWithName(name) {
     //ajax call
 
     const request = new XMLHttpRequest();
@@ -28,11 +30,22 @@ function renderCountry(name) {
 
 
 }
-function renderCountryCard(data) {
+
+function renderCountryWithCode(code) {
+    const request = new XMLHttpRequest();
+    request.open("GET", `https://restcountries.com/v3.1/alpha/${code}`);
+    request.send();
+
+    request.addEventListener("load", function () {
+        const [dataObj] = JSON.parse(this.responseText);
+        renderCountryCard(dataObj, "neighbouring-country", false);
+    })
+}
+function renderCountryCard(data, className = "", countryCodeAccept = true) {
 
     const [currency, currencyObj] = Object.entries(data.currencies)[0];
     console.log(currencyObj["name"]);
-    const countryhtmlComponent = `<div class="country-container">
+    const countryhtmlComponent = `<div class="country-container ${className}">
     <div class="flag"><img src="${data.flags.svg}"></div>
     <div class="country-info">
         <p><span class="label">Name</span> : ${data.name.common}</p>
@@ -43,6 +56,15 @@ function renderCountryCard(data) {
     </div>
 </div>`;
     container.insertAdjacentHTML("beforeend", countryhtmlComponent);
+
+    if (countryCodeAccept) {
+        const borders = data.borders;
+        if (borders.length != 0) {
+            borders.forEach((border) => {
+                renderCountryWithCode(border);
+            })
+        }
+    }
 }
 
 function formattedCountryName(country) {
@@ -59,7 +81,8 @@ function formattedCountryName(country) {
     return country;
 }
 
-const obj = {
-    name: "Bibek Pant"
+document.onkeydown = (e) => {
+    if (e.key == 'Enter') {
+        getCountryName();
+    }
 }
-console.log(Object.values(obj)[0]);
