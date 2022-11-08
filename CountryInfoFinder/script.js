@@ -10,6 +10,7 @@ function getCountryName() {
     }
     else {
         let updatedCountryName = formattedCountryName(country);
+        container.innerHTML = "";
         renderCountryWithName(updatedCountryName);
     }
 }
