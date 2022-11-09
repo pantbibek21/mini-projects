@@ -37,8 +37,7 @@ body {
     margin-bottom: 20px;
 }
 
-.header .submit-btn {
-    display: block;
+.header .button {
     margin: 0 auto;
     padding: 6px 20px;
     border-radius: 4px;
@@ -47,7 +46,7 @@ body {
     cursor: pointer;
 }
 
-.header .submit-btn:hover {
+.header .button:hover {
     background-color: rgb(157, 239, 34);
 }
 

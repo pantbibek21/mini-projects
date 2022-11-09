@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 const submitBtn = document.querySelector(".submit-btn");
+const clearBtn = document.querySelector(".clear-btn");
 submitBtn.addEventListener("click", getCountryName);
 
 function getCountryName() {
@@ -87,3 +88,8 @@ document.onkeydown = (e) => {
         getCountryName();
     }
 }
+
+clearBtn.addEventListener("click",()=>{
+    document.querySelector(".input-country").value = "";
+    container.innerHTML = "";
+})
