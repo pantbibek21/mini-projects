@@ -1,13 +1,16 @@
 const container = document.querySelector(".container");
 const submitBtn = document.querySelector(".submit-btn");
 const clearBtn = document.querySelector(".clear-btn");
+const errorMsg = document.querySelector(".error-msg");
+const inputField = document.querySelector(".input-country");
 submitBtn.addEventListener("click", getCountryName);
 
 function getCountryName() {
-    let country = document.querySelector(".input-country").value;
+    let country = inputField.value;
 
     if (! /^[a-zA-Z ]+$/.test(country)) {
         console.log("Invalid Country Name");
+        renderErrorMsg("Invalid Country Name !!!");
     }
     else {
         let updatedCountryName = formattedCountryName(country);
@@ -24,7 +27,11 @@ function renderCountryWithName(name) {
     request.send();
 
     request.addEventListener("load", function () {
-
+        if(this.status == 404){
+            renderErrorMsg("Country Not Found !!!")
+            return false;
+        }
+        errorMsg.innerHTML = "";
         const [data] = JSON.parse(this.responseText);
         console.log(data);
         renderCountryCard(data);
@@ -90,6 +97,11 @@ document.onkeydown = (e) => {
 }
 
 clearBtn.addEventListener("click",()=>{
-    document.querySelector(".input-country").value = "";
+   inputField.value = "";
     container.innerHTML = "";
+    errorMsg.innerHTML = "";
 })
+
+function renderErrorMsg(msg){
+    errorMsg.innerHTML = msg;
+}
