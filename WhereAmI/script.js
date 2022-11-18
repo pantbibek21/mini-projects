@@ -30,6 +30,7 @@ const locationTracker = function () {
 }
 
 const getLocation = function () {
+    msg.innerHTML = "Loading ...";
     let city = "", country = "";
     locationTracker().then(position => {
        

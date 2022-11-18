@@ -27,6 +27,7 @@ body {
    /* display: none; */
 }
 .container .btn {
+    width: 180px;
     position: absolute;
     top: -60px;
     left: 50%;
